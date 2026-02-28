@@ -1,0 +1,14 @@
+services:
+  app:
+    image: filebrowser/filebrowser:latest
+    restart: unless-stopped
+    environment:
+      - PUID=1000 #"id $user" to find your uid & gid values
+      - PGID=1000
+    ports:
+      - 80:80
+    volumes:
+      - ./data:/srv
+      - ./:/database
+      - ./:/config
+
